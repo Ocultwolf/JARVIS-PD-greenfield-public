@@ -1,0 +1,47 @@
+{
+  "artifact": "JARVIS_PD_F1_WP4_REVIEW_V4.zip",
+  "baseline_artifact": "JARVIS_PD_F1_WP4_REVIEW_V3.zip",
+  "base_head": "64c41c2c76804cb6b567f015f1724a1a1971deba",
+  "commit_created": false,
+  "status": "READY_FOR_FOURTH_REVIEW",
+  "corrections": {
+    "CORR-WP4-V4-001": "PASS",
+    "CORR-WP4-V4-002": "PASS"
+  },
+  "validation": {
+    "wp4_postgresql": "40 passed",
+    "v3_wp4_regression": "30 preserved plus 10 V4 tests",
+    "non_integration": "79 passed, 108 deselected",
+    "complete_suite": "187 passed",
+    "ruff": "PASS",
+    "mypy": "PASS, 28 source files",
+    "migration_gate0": "PASS",
+    "migration_wp1": "PASS",
+    "migration_wp3": "PASS",
+    "migration_wp4": "PASS",
+    "backup_restore": "PASS, NO_AUTOMATIC_REPLAY",
+    "git_diff_check": "PASS"
+  },
+  "host_latch_authority": {
+    "authority_identity": "configured authority_uid owning every accepted object",
+    "worker_identity": "effective uid, primary gid, and supplementary gids",
+    "credentials": "EffectiveHostCredentialProvider in deployment; injectable provider at acceptance boundary",
+    "read_group": "configured read_gid",
+    "same_uid_accepted": false,
+    "worker_write_accepted": false,
+    "worker_write_api": false,
+    "trusted_root": "explicit absolute authority-owned directory descriptor",
+    "path_resolution": "component-by-component openat semantics with O_DIRECTORY/O_NOFOLLOW/fstat",
+    "mount_boundary_accepted": false,
+    "replacement_detection": "device/inode before-open-after for directories and final file"
+  },
+  "acceptance_limitation": "No chown or privileged process was used. Real filesystem ownership remains authority-owned by the test process; only worker effective credentials are injected, and the same production permission evaluator consumes both real stat metadata and the credential provider.",
+  "previous_artifacts": {
+    "v1_sha256": "ac6b12aafea2464c7e0b86ee34fe88938783caaef2a8619fc9faa2811bd8b4b1",
+    "v2_sha256": "2feb43cf3443a113711b535acb16e4f5425026f853d314d6b45e5e3bddd77abe",
+    "v3_sha256": "8d0a80c1d9840b5f8147028d0486eda9711867afe9f0cba6b1ea5b08239fe1da",
+    "retrospectively_modified": false
+  },
+  "gate_1": "NOT_EVALUATED",
+  "wp5_plus": "NOT_AUTHORIZED"
+}

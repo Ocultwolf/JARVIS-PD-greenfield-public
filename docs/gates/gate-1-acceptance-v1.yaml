@@ -1,0 +1,78 @@
+manifest_id: G1_CONTINUITY_V1
+version: 1.1.0
+phase: PHASE_1
+status: NOT_EVALUATED
+authority: HumanOwner
+protected_gate_0:
+  status: PASS
+  executable_baseline: dd1028ca80b8a45adc69432bf4b89d82040e5f1b
+  certification: 64c41c2c76804cb6b567f015f1724a1a1971deba
+invariants:
+  canonical_source: PostgreSQL
+  langgraph_role: coordination_only
+  openclaw_boundary: AgentRuntime
+  physical_binding: docker_exec_provisional
+  cognitive_authority: proposals_only
+  authorization_default: deny
+scope:
+  tools: [fixture.atomic_write]
+  maximum_risk: R1
+  real_personal_data: forbidden
+  external_event_bus: forbidden
+host_latch:
+  canonical_materialization: host_regular_json_file
+  postgresql_role: projection_and_audit_only
+  identity: gate1-local
+  validation: [no_symlink, closed_schema, bounded_size, sha256_projection_match]
+  authority_validation: [expected_uid, expected_gid, trusted_parent, stable_device_inode]
+  forbidden_permissions: [group_write, world_write]
+  worker_write_authority: forbidden
+  fail_closed_on: [missing, unreadable, corrupt, ambiguous, projection_divergence, active]
+  revalidation_boundaries: [before_acquisition, immediately_before_effect]
+  automatic_release: forbidden
+requirements:
+  - id: G1-01
+    statement: El mismo contrato completa el vertical slice con fake y OpenClaw.
+  - id: G1-02
+    statement: User Node recomienda y Planner propone sin materializar, autorizar ni ejecutar; Router decide determinísticamente sobre estado y guards validados, y ningún texto LLM selecciona directamente una ruta.
+  - id: G1-03
+    statement: Los límites A2 abortan o bloquean sin excederse.
+  - id: G1-04
+    statement: Cada frontera puede interrumpirse y reanudarse desde PostgreSQL.
+  - id: G1-05
+    statement: Reinicio, redelivery y retry no duplican el efecto.
+  - id: G1-06
+    statement: Un timeout ambiguo produce OUTCOME_UNKNOWN y reconcile-before-retry.
+  - id: G1-07
+    statement: Cancelación conserva efectos pasados y detiene trabajo futuro; toda compensación es una operación separada, idempotente y auditable.
+  - id: G1-08
+    statement: Default deny, scope exacto y revalidación pre-efecto están demostrados.
+  - id: G1-09
+    statement: Approval exacta ligada al operation hash expira, puede revocarse, rechaza replay o reutilización no autorizada y conserva consumo transaccional single-use o de uso limitado.
+  - id: G1-10
+    statement: El sandbox opera sin red y con allowlist y límites explícitos de recursos; rechaza paths absolutos, .. y escapes mediante symlink.
+  - id: G1-11
+    statement: ContextManifest e InjectionReceipt confirman sesión, transporte y hash.
+  - id: G1-12
+    statement: Output inválido tiene una reparación y el segundo fallo bloquea.
+  - id: G1-13
+    statement: El latch persiste independientemente de LLM, LangGraph y OpenClaw, bloquea antes de adquirir trabajo y antes del efecto, y recuperar health no lo libera automáticamente.
+  - id: G1-14
+    statement: El checkpoint de LangGraph puede perderse sin perder corrección.
+  - id: G1-15
+    statement: Outbox local se recupera y la inbox deduplica sin bus externo.
+  - id: G1-16
+    statement: Leases y fencing impiden writes de workers obsoletos.
+  - id: G1-17
+    statement: Solo se usan fixtures sintéticos, sin secretos ni datos personales reales, con contexto mínimo, sin chain-of-thought en contexto o evidencia y con evidencia redactada.
+  - id: G1-18
+    statement: Backup/restore preserva G0 y no reactiva efectos ni autoridad.
+  - id: G1-19
+    statement: El TestEvidenceBundle reproduce tests, interrupciones y artefactos.
+  - id: G1-20
+    statement: No se importan sesiones ni estado canónico del prototipo histórico.
+  - id: G1-21
+    statement: La caída o indisponibilidad de OpenClaw bloquea o degrada controladamente el Run sin corromper PostgreSQL, fallback silencioso ni confirmación de un resultado inexistente.
+result_values: [PASS, FAIL, BLOCKED]
+promotion:
+  gate_2_authorized: false

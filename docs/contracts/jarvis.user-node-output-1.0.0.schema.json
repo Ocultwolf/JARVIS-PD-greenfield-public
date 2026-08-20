@@ -1,0 +1,134 @@
+{
+  "$defs": {
+    "ProposalKind": {
+      "enum": [
+        "SELECT_TASK",
+        "PROPOSE_TASK",
+        "REPORT_BLOCKER",
+        "REQUEST_ESCALATION",
+        "NO_ACTION"
+      ],
+      "title": "ProposalKind",
+      "type": "string"
+    },
+    "ProposedTask": {
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "acceptance_criteria": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 10,
+          "minItems": 1,
+          "title": "Acceptance Criteria",
+          "type": "array"
+        },
+        "rationale": {
+          "maxLength": 1000,
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "acceptance_criteria",
+        "rationale"
+      ],
+      "title": "ProposedTask",
+      "type": "object"
+    },
+    "RejectionReason": {
+      "enum": [
+        "INSUFFICIENT_CONTEXT",
+        "NO_ELIGIBLE_TASK",
+        "AUTHORITY_REQUIRED",
+        "CONTRACT_UNSUPPORTED",
+        "UNSAFE_OR_AMBIGUOUS"
+      ],
+      "title": "RejectionReason",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Untrusted proposal. It deliberately exposes no persistence methods.",
+  "properties": {
+    "contract": {
+      "const": "jarvis.user-node-output",
+      "title": "Contract",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "proposal_id": {
+      "format": "uuid",
+      "title": "Proposal Id",
+      "type": "string"
+    },
+    "run_id": {
+      "format": "uuid",
+      "title": "Run Id",
+      "type": "string"
+    },
+    "kind": {
+      "$ref": "#/$defs/ProposalKind"
+    },
+    "selected_task_id": {
+      "anyOf": [
+        {
+          "format": "uuid",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Selected Task Id"
+    },
+    "proposed_tasks": {
+      "items": {
+        "$ref": "#/$defs/ProposedTask"
+      },
+      "maxItems": 5,
+      "title": "Proposed Tasks",
+      "type": "array"
+    },
+    "rejection_reason": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/RejectionReason"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "explanation": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "title": "Explanation",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract",
+    "schema_version",
+    "proposal_id",
+    "run_id",
+    "kind",
+    "explanation"
+  ],
+  "title": "UserNodeProposal",
+  "type": "object"
+}

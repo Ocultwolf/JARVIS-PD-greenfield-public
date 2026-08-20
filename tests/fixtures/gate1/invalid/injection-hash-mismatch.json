@@ -1,0 +1,24 @@
+{
+  "contract_id": "jarvis.injection-receipt@1.0.0",
+  "expected_reason_code": "SCHEMA_VALIDATION_FAILED",
+  "payload": {
+    "contract": "jarvis.injection-receipt",
+    "schema_version": "1.0.0",
+    "injection_id": "30000000-0000-0000-0000-000000000010",
+    "invocation_id": "30000000-0000-0000-0000-000000000011",
+    "context_manifest_id": "30000000-0000-0000-0000-000000000012",
+    "manifest_invocation_id": "30000000-0000-0000-0000-000000000011",
+    "manifest_context_manifest_id": "30000000-0000-0000-0000-000000000012",
+    "manifest_session_id": "synthetic-session",
+    "manifest_transport": "docker-exec-provisional",
+    "status": "CONFIRMED",
+    "strategy": "FRESH_SESSION",
+    "transport": "docker-exec-provisional",
+    "session_id": "synthetic-session",
+    "manifest_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "injected_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "injected_at": "2026-08-06T14:00:00Z",
+    "verification_method": "session_hash_receipt",
+    "error_code": null
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "$defs": {
+    "ReconciliationOutcome": {
+      "enum": [
+        "NO_EFFECT",
+        "CONFIRMED_SUCCEEDED",
+        "CONFIRMED_FAILED",
+        "UNRESOLVED"
+      ],
+      "title": "ReconciliationOutcome",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract": {
+      "const": "jarvis.reconciliation-result",
+      "title": "Contract",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "reconciliation_id": {
+      "format": "uuid",
+      "title": "Reconciliation Id",
+      "type": "string"
+    },
+    "tool_call_id": {
+      "format": "uuid",
+      "title": "Tool Call Id",
+      "type": "string"
+    },
+    "operation_id": {
+      "format": "uuid",
+      "title": "Operation Id",
+      "type": "string"
+    },
+    "outcome": {
+      "$ref": "#/$defs/ReconciliationOutcome"
+    },
+    "observed_hash": {
+      "anyOf": [
+        {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Observed Hash"
+    },
+    "reconciled_at": {
+      "format": "date-time",
+      "title": "Reconciled At",
+      "type": "string"
+    },
+    "evidence_refs": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 32,
+      "minItems": 1,
+      "title": "Evidence Refs",
+      "type": "array"
+    },
+    "reason_code": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Reason Code",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract",
+    "schema_version",
+    "reconciliation_id",
+    "tool_call_id",
+    "operation_id",
+    "outcome",
+    "reconciled_at",
+    "evidence_refs",
+    "reason_code"
+  ],
+  "title": "ReconciliationResult",
+  "type": "object"
+}

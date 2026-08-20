@@ -1,0 +1,22 @@
+{
+  "contract_id": "jarvis.agent-result@1.0.0",
+  "expected_reason_code": "SCHEMA_VALIDATION_FAILED",
+  "payload": {
+    "contract": "jarvis.agent-result",
+    "schema_version": "1.0.0",
+    "invocation_id": "30000000-0000-0000-0000-000000000060",
+    "node_run_id": "30000000-0000-0000-0000-000000000061",
+    "status": "SUCCEEDED",
+    "requested_contract": "jarvis.user-node-output@1.0.0",
+    "raw_output": null,
+    "structured_output": null,
+    "output_hash": null,
+    "session_id": null,
+    "started_at": "2026-08-06T14:00:00Z",
+    "completed_at": "2026-08-06T14:00:01Z",
+    "input_tokens": null,
+    "output_tokens": null,
+    "error_code": null,
+    "evidence_refs": []
+  }
+}

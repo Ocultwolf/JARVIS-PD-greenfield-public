@@ -1,0 +1,39 @@
+{
+  "artifact": "JARVIS_PD_F1_WP4_REVIEW_V2.zip",
+  "base_head": "64c41c2c76804cb6b567f015f1724a1a1971deba",
+  "commit_created": false,
+  "status": "READY_FOR_SECOND_REVIEW",
+  "corrections": {
+    "CORR-WP4-001": "PASS",
+    "CORR-WP4-002": "PASS",
+    "CORR-WP4-003": "PASS",
+    "CORR-WP4-004": "PASS",
+    "CORR-WP4-005": "PASS",
+    "CORR-WP4-006": "PASS"
+  },
+  "validation": {
+    "wp4_postgresql": "19 passed",
+    "non_integration": "79 passed, 87 deselected",
+    "complete_suite": "166 passed",
+    "ruff": "PASS",
+    "mypy": "PASS, 28 source files",
+    "migration_gate0": "PASS",
+    "migration_wp1": "PASS",
+    "migration_wp3": "PASS",
+    "migration_wp4": "PASS",
+    "backup_restore": "PASS, NO_AUTOMATIC_REPLAY",
+    "git_diff_check": "PASS"
+  },
+  "postgresql": {
+    "endpoint": "127.0.0.1:55432",
+    "real_server": true,
+    "repository_mock_used_as_persistence_evidence": false
+  },
+  "v1": {
+    "path": "artifacts/JARVIS_PD_F1_WP4_REVIEW_V1.zip",
+    "expected_sha256": "ac6b12aafea2464c7e0b86ee34fe88938783caaef2a8619fc9faa2811bd8b4b1",
+    "retrospectively_modified": false
+  },
+  "gate_1": "NOT_EVALUATED",
+  "wp5_plus": "NOT_AUTHORIZED"
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "agents": [
+    {
+      "id": "user",
+      "runtime": "external-not-integrated",
+      "contract": "jarvis.user-node-output@1.0.0",
+      "capabilities": ["task:propose", "task:inspect"],
+      "authority": "PROPOSAL_ONLY",
+      "enabled": false
+    }
+  ]
+}

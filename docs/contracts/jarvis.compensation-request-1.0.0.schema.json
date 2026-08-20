@@ -1,0 +1,72 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "contract": {
+      "const": "jarvis.compensation-request",
+      "title": "Contract",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "compensation_id": {
+      "format": "uuid",
+      "title": "Compensation Id",
+      "type": "string"
+    },
+    "original_tool_call_id": {
+      "format": "uuid",
+      "title": "Original Tool Call Id",
+      "type": "string"
+    },
+    "operation_id": {
+      "format": "uuid",
+      "title": "Operation Id",
+      "type": "string"
+    },
+    "operation_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Operation Hash",
+      "type": "string"
+    },
+    "actor_id": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Actor Id",
+      "type": "string"
+    },
+    "idempotency_key": {
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Idempotency Key",
+      "type": "string"
+    },
+    "reason": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Reason",
+      "type": "string"
+    },
+    "expected_result_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Expected Result Hash",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract",
+    "schema_version",
+    "compensation_id",
+    "original_tool_call_id",
+    "operation_id",
+    "operation_hash",
+    "actor_id",
+    "idempotency_key",
+    "reason",
+    "expected_result_hash"
+  ],
+  "title": "CompensationRequest",
+  "type": "object"
+}

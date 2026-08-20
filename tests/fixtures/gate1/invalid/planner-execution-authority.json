@@ -1,0 +1,18 @@
+{
+  "contract_id": "jarvis.planner-proposal@1.0.0",
+  "expected_reason_code": "SCHEMA_VALIDATION_FAILED",
+  "payload": {
+    "contract": "jarvis.planner-proposal",
+    "schema_version": "1.0.0",
+    "proposal_id": "30000000-0000-0000-0000-000000000001",
+    "run_id": "30000000-0000-0000-0000-000000000002",
+    "goal_id": "30000000-0000-0000-0000-000000000003",
+    "assumptions": [],
+    "steps": [{"step_id": "30000000-0000-0000-0000-000000000004", "intent": "write", "required_capabilities": ["fixture.atomic_write"], "dependencies": [], "expected_evidence": ["receipt"], "risk_class": "R1"}],
+    "open_questions": [],
+    "requested_approval_ids": [],
+    "completion_criteria": ["done"],
+    "explanation": "Invalid authority",
+    "execute_tool": true
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "$defs": {
+    "InvocationConstraints": {
+      "additionalProperties": false,
+      "properties": {
+        "deadline": {
+          "format": "date-time",
+          "title": "Deadline",
+          "type": "string"
+        },
+        "max_output_bytes": {
+          "maximum": 1048576,
+          "minimum": 1,
+          "title": "Max Output Bytes",
+          "type": "integer"
+        },
+        "allowed_response_contract": {
+          "pattern": "^[a-z0-9._-]+@[0-9]+\\.[0-9]+\\.[0-9]+$",
+          "title": "Allowed Response Contract",
+          "type": "string"
+        }
+      },
+      "required": [
+        "deadline",
+        "max_output_bytes",
+        "allowed_response_contract"
+      ],
+      "title": "InvocationConstraints",
+      "type": "object"
+    },
+    "SessionBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "strategy": {
+          "$ref": "#/$defs/SessionStrategy"
+        },
+        "workspace_id": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Workspace Id",
+          "type": "string"
+        },
+        "session_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Session Id"
+        }
+      },
+      "required": [
+        "strategy",
+        "workspace_id"
+      ],
+      "title": "SessionBinding",
+      "type": "object"
+    },
+    "SessionStrategy": {
+      "enum": [
+        "FRESH_SESSION",
+        "VERIFIED_SESSION_UPDATE",
+        "SESSION_RECREATE"
+      ],
+      "title": "SessionStrategy",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract": {
+      "const": "jarvis.node-invocation-request",
+      "title": "Contract",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "invocation_id": {
+      "format": "uuid",
+      "title": "Invocation Id",
+      "type": "string"
+    },
+    "node_run_id": {
+      "format": "uuid",
+      "title": "Node Run Id",
+      "type": "string"
+    },
+    "run_id": {
+      "format": "uuid",
+      "title": "Run Id",
+      "type": "string"
+    },
+    "node_id": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Node Id",
+      "type": "string"
+    },
+    "capability": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Capability",
+      "type": "string"
+    },
+    "input_refs": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 32,
+      "minItems": 1,
+      "title": "Input Refs",
+      "type": "array"
+    },
+    "context_manifest_id": {
+      "format": "uuid",
+      "title": "Context Manifest Id",
+      "type": "string"
+    },
+    "session_binding": {
+      "$ref": "#/$defs/SessionBinding"
+    },
+    "constraints": {
+      "$ref": "#/$defs/InvocationConstraints"
+    }
+  },
+  "required": [
+    "contract",
+    "schema_version",
+    "invocation_id",
+    "node_run_id",
+    "run_id",
+    "node_id",
+    "capability",
+    "input_refs",
+    "context_manifest_id",
+    "session_binding",
+    "constraints"
+  ],
+  "title": "NodeInvocationRequest",
+  "type": "object"
+}

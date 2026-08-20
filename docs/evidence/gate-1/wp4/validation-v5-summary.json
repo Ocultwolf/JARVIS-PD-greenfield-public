@@ -1,0 +1,52 @@
+{
+  "artifact": "JARVIS_PD_F1_WP4_REVIEW_V5.zip",
+  "baseline_artifact": "JARVIS_PD_F1_WP4_REVIEW_V4.zip",
+  "baseline_sha256": "488a11c8e02768e3d067a04a0da069962bceec3fbdf4bec566c6af8d1fc7a347",
+  "base_head": "64c41c2c76804cb6b567f015f1724a1a1971deba",
+  "commit_created": false,
+  "status": "READY_FOR_FIFTH_REVIEW",
+  "review_diff_sha256": "1279b2c858631319777f81c72d216f0611fe2e55d19c308d1f5b427decaccf9b",
+  "corrections": {
+    "CORR-WP4-V5-001": "PASS",
+    "CORR-WP4-V5-002": "PASS"
+  },
+  "validation": {
+    "wp4_postgresql": "62 passed",
+    "non_integration": "79 passed, 130 deselected",
+    "complete_suite": "209 passed",
+    "ruff": "PASS",
+    "mypy": "PASS, 28 source files",
+    "migration_gate0": "PASS",
+    "migration_wp1": "PASS",
+    "migration_wp3": "PASS",
+    "migration_wp4": "PASS",
+    "backup_restore": "PASS, NO_AUTOMATIC_REPLAY",
+    "git_diff_check": "PASS"
+  },
+  "linux_credentials": {
+    "source": "/proc/self/status plus os.getresuid/getresgid/geteuid/getegid/getgroups",
+    "uid_slots": ["real", "effective", "saved", "filesystem"],
+    "gid_slots": ["real", "effective", "saved", "filesystem"],
+    "capability_sets": ["inheritable", "permitted", "effective", "bounding", "ambient"],
+    "required_no_new_privileges": true,
+    "root_accepted": false,
+    "nonzero_capability_accepted": false,
+    "divergent_identity_accepted": false,
+    "missing_or_malformed_status_accepted": false
+  },
+  "acceptance_environment": {
+    "real_provider_exercised": true,
+    "adversarial_combinations": "injected immutable credential snapshots",
+    "privileged_operations_used": false,
+    "filesystem_metadata_mocked": false
+  },
+  "previous_artifacts": {
+    "v1_sha256": "ac6b12aafea2464c7e0b86ee34fe88938783caaef2a8619fc9faa2811bd8b4b1",
+    "v2_sha256": "2feb43cf3443a113711b535acb16e4f5425026f853d314d6b45e5e3bddd77abe",
+    "v3_sha256": "8d0a80c1d9840b5f8147028d0486eda9711867afe9f0cba6b1ea5b08239fe1da",
+    "v4_sha256": "488a11c8e02768e3d067a04a0da069962bceec3fbdf4bec566c6af8d1fc7a347",
+    "retrospectively_modified": false
+  },
+  "gate_1": "NOT_EVALUATED",
+  "wp5_plus": "NOT_AUTHORIZED"
+}

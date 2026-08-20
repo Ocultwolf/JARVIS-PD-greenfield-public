@@ -1,0 +1,79 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "contract": {
+      "const": "jarvis.gate1-limits",
+      "title": "Contract",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "max_concurrent_runs": {
+      "const": 1,
+      "title": "Max Concurrent Runs",
+      "type": "integer"
+    },
+    "max_actions_per_run": {
+      "const": 1,
+      "title": "Max Actions Per Run",
+      "type": "integer"
+    },
+    "max_tool_calls_per_action": {
+      "const": 1,
+      "title": "Max Tool Calls Per Action",
+      "type": "integer"
+    },
+    "max_node_attempts": {
+      "const": 2,
+      "title": "Max Node Attempts",
+      "type": "integer"
+    },
+    "max_graph_transitions": {
+      "const": 12,
+      "title": "Max Graph Transitions",
+      "type": "integer"
+    },
+    "run_timeout_seconds": {
+      "const": 300,
+      "title": "Run Timeout Seconds",
+      "type": "integer"
+    },
+    "node_timeout_seconds": {
+      "const": 60,
+      "title": "Node Timeout Seconds",
+      "type": "integer"
+    },
+    "tool_timeout_seconds": {
+      "const": 30,
+      "title": "Tool Timeout Seconds",
+      "type": "integer"
+    },
+    "model_id": {
+      "default": null,
+      "title": "Model Id",
+      "type": "null"
+    },
+    "token_budget": {
+      "default": null,
+      "title": "Token Budget",
+      "type": "null"
+    }
+  },
+  "required": [
+    "contract",
+    "schema_version",
+    "max_concurrent_runs",
+    "max_actions_per_run",
+    "max_tool_calls_per_action",
+    "max_node_attempts",
+    "max_graph_transitions",
+    "run_timeout_seconds",
+    "node_timeout_seconds",
+    "tool_timeout_seconds"
+  ],
+  "title": "Gate1Limits",
+  "type": "object"
+}

@@ -1,0 +1,78 @@
+{
+  "bundle_schema_version": "1.0.0",
+  "bundle_id": "G0-DEFINITIVE-2026-08-06-dd1028c",
+  "gate_id": "G0_INTEGRITY",
+  "phase": "PHASE_0",
+  "evaluated_at": "2026-08-06T15:15:51Z",
+  "overall_result": "PASS",
+  "evaluated_revision": "dd1028ca80b8a45adc69432bf4b89d82040e5f1b",
+  "baseline_accepted": true,
+  "environment": {
+    "python": "3.12.3",
+    "postgresql": "16.14",
+    "docker": "29.3.0",
+    "migration": "0001_phase_0_integrity",
+    "dependency_lock_sha256": "8e26df0e70df337fb6b17031edb6c0a50a47a9c5434593ea35e63313f66c2618"
+  },
+  "commands": [
+    {"command": "git status --short --branch && git rev-parse HEAD", "result": "PASS", "output": "## main; dd1028ca80b8a45adc69432bf4b89d82040e5f1b"},
+    {"command": "uv sync --frozen --all-extras", "result": "PASS", "output": "Audited 30 packages"},
+    {"command": "uv run ruff check .", "result": "PASS", "output": "All checks passed!"},
+    {"command": "uv run mypy", "result": "PASS", "output": "Success: no issues found in 14 source files"},
+    {"command": "uv run jarvis registry validate --config-dir config", "result": "PASS", "output": "VALID"},
+    {"command": "uv run pytest -q", "result": "PASS", "output": "26 passed in 0.63s"},
+    {"command": "uv run pytest -q tests/integration/test_integrity.py -k 'lease or fencing or two_workers or inbox or outbox or idempotency or atomic or rollback'", "result": "PASS", "output": "9 passed, 1 deselected in 0.45s"},
+    {"command": "scripts/migration_verify_gate0.sh", "result": "PASS", "output": "migration=0001_phase_0_integrity tables=8"},
+    {"command": "scripts/backup_gate0.sh artifacts/gate-0-recovery", "result": "PASS", "output": "gate0-20260806T151551Z.dump"},
+    {"command": "scripts/restore_verify_gate0.sh artifacts/gate-0-recovery/gate0-20260806T151551Z.dump", "result": "PASS", "output": "checksum OK; restored snapshot matched; stable snapshot matched after delay; NO_AUTOMATIC_REPLAY"}
+  ],
+  "migration_from_empty": {
+    "result": "PASS",
+    "database": "jarvis_migration_gate0",
+    "revision": "0001_phase_0_integrity",
+    "critical_tables_verified": 8
+  },
+  "recovery": {
+    "result": "PASS",
+    "artifact": "docs/evidence/gate-0/artifacts/phase-0-postgres.dump",
+    "sha256": "c2bb0001e93ef37ced3a87f6218ef13c0f41c8b3a4f639b7844889fdf25b3de5",
+    "snapshot": "docs/evidence/gate-0/artifacts/phase-0-postgres.snapshot.json",
+    "restored_counts": {"goals": 0, "tasks": 1, "runs": 0, "actions": 0, "evidence": 0, "approvals": 0, "leases": 0, "audit_records": 5, "inbox": 1, "outbox": 1, "idempotency_records": 1},
+    "restored_states": {"inbox": {"RELEASED": 1}, "outbox": {"DELIVERED": 1}},
+    "restore_database": "jarvis_restore_gate0",
+    "automatic_promotion": false,
+    "automatic_replay": false
+  },
+  "user_node_contract": {
+    "result": "PASS",
+    "schema_version": "1.0.0",
+    "schema": "docs/contracts/jarvis.user-node-output-1.0.0.schema.json",
+    "schema_sha256": "7f9f14b87d66013350c029f20c9b3cd5ae37725478350692ddca8619addf8c5a",
+    "positive_fixtures": 5,
+    "negative_fixtures": 5
+  },
+  "open_questions_record": {
+    "result": "PASS",
+    "document": "docs/decisions/phase-0-resolutions.md",
+    "recorded": ["O-QST-001", "O-QST-002", "O-QST-003", "O-QST-004", "O-QST-017", "O-QST-026", "O-QST-027", "O-QST-028"]
+  },
+  "requirements": [
+    {"id": "G0-01", "result": "PASS", "evidence": ["src/jarvis_pd/loop/application/integrity_service.py", "tests/unit/test_states.py", "tests/integration/test_integrity.py::test_run_cancellation_requires_exact_approval_and_emits_no_invented_event"]},
+    {"id": "G0-02", "result": "PASS", "evidence": ["tests/integration/test_integrity.py::test_state_outbox_audit_and_idempotency_are_atomic", "tests/integration/test_integrity.py::test_failure_rolls_back_idempotency_and_all_materialization"]},
+    {"id": "G0-03", "result": "PASS", "evidence": ["tests/integration/test_integrity.py::test_idempotency_key_reuse_with_different_payload_is_rejected", "tests/integration/test_integrity.py::test_inbox_deduplicates_and_requires_controlled_release", "tests/integration/test_integrity.py::test_outbox_release_and_replay_are_guarded_audited_and_deduplicated"]},
+    {"id": "G0-04", "result": "PASS", "evidence": ["tests/integration/test_integrity.py::test_two_workers_cannot_hold_same_valid_lease"]},
+    {"id": "G0-05", "result": "PASS", "evidence": ["tests/integration/test_integrity.py::test_stale_fencing_token_cannot_write", "tests/integration/test_integrity.py::test_lease_lifecycle_is_guarded_monotonic_and_auditable"]},
+    {"id": "G0-06", "result": "PASS", "evidence": ["scripts/migration_verify_gate0.sh", "migrations/versions/0001_phase_0_integrity.py"]},
+    {"id": "G0-07", "result": "PASS", "evidence": ["scripts/backup_gate0.sh", "scripts/restore_verify_gate0.sh", "docs/evidence/gate-0/artifacts/phase-0-postgres.dump.sha256", "docs/evidence/gate-0/artifacts/phase-0-postgres.snapshot.json"]},
+    {"id": "G0-08", "result": "PASS", "evidence": ["tests/integration/test_integrity.py::test_run_cancellation_requires_exact_approval_and_emits_no_invented_event", "tests/integration/test_integrity.py::test_lease_lifecycle_is_guarded_monotonic_and_auditable", "tests/integration/test_integrity.py::test_outbox_release_and_replay_are_guarded_audited_and_deduplicated"]},
+    {"id": "G0-09", "result": "PASS", "evidence": ["tests/contracts/test_user_node_contract.py", "docs/contracts/jarvis.user-node-output-1.0.0.schema.json", "tests/fixtures/user_node"]},
+    {"id": "G0-10", "result": "PASS", "evidence": ["docs/evidence/gate-0/TestEvidenceBundle.json", "docs/evidence/gate-0/GATE_0_REPORT.md"]},
+    {"id": "O-QST-017-LEASE-LIFECYCLE", "result": "PASS", "evidence": ["src/jarvis_pd/loop/application/integrity_service.py:acquire_lease", "src/jarvis_pd/loop/application/integrity_service.py:renew_lease", "src/jarvis_pd/loop/application/integrity_service.py:release_lease", "tests/integration/test_integrity.py::test_lease_lifecycle_is_guarded_monotonic_and_auditable", "tests/integration/test_integrity.py::test_expired_lease_cannot_be_renewed"]},
+    {"id": "O-QST-017-CONTROLLED-INBOX-OUTBOX", "result": "PASS", "evidence": ["tests/integration/test_integrity.py::test_inbox_deduplicates_and_requires_controlled_release", "tests/integration/test_integrity.py::test_outbox_release_and_replay_are_guarded_audited_and_deduplicated"]},
+    {"id": "PHASE0-TYPE-CHECK", "result": "PASS", "evidence": ["pyproject.toml:[tool.mypy]", "uv.lock", "uv run mypy: 14 source files"]}
+  ],
+  "failures": 0,
+  "blocked": 0,
+  "invented_commands_or_events": [],
+  "phase_1_components_present": false
+}

@@ -1,0 +1,209 @@
+{
+  "$defs": {
+    "ContextItem": {
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Ref",
+          "type": "string"
+        },
+        "version": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Version",
+          "type": "string"
+        },
+        "content_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "reason": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ref",
+        "version",
+        "content_hash",
+        "reason"
+      ],
+      "title": "ContextItem",
+      "type": "object"
+    },
+    "ExcludedContextItem": {
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Ref",
+          "type": "string"
+        },
+        "reason_code": {
+          "enum": [
+            "NOT_REQUIRED",
+            "SENSITIVITY_DENIED",
+            "BUDGET_EXCEEDED",
+            "UNTRUSTED_SOURCE",
+            "EXPIRED"
+          ],
+          "title": "Reason Code",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ref",
+        "reason_code"
+      ],
+      "title": "ExcludedContextItem",
+      "type": "object"
+    },
+    "TokenBudget": {
+      "additionalProperties": false,
+      "properties": {
+        "max_tokens": {
+          "minimum": 1,
+          "title": "Max Tokens",
+          "type": "integer"
+        },
+        "used_tokens": {
+          "minimum": 0,
+          "title": "Used Tokens",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "max_tokens",
+        "used_tokens"
+      ],
+      "title": "TokenBudget",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract": {
+      "const": "jarvis.context-manifest",
+      "title": "Contract",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "context_manifest_id": {
+      "format": "uuid",
+      "title": "Context Manifest Id",
+      "type": "string"
+    },
+    "invocation_id": {
+      "format": "uuid",
+      "title": "Invocation Id",
+      "type": "string"
+    },
+    "session_id": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Session Id",
+      "type": "string"
+    },
+    "transport": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Transport",
+      "type": "string"
+    },
+    "consumer_id": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Consumer Id",
+      "type": "string"
+    },
+    "purpose": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Purpose",
+      "type": "string"
+    },
+    "knowledge_versions": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 32,
+      "title": "Knowledge Versions",
+      "type": "array"
+    },
+    "policy_version": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "included_items": {
+      "items": {
+        "$ref": "#/$defs/ContextItem"
+      },
+      "maxItems": 64,
+      "title": "Included Items",
+      "type": "array"
+    },
+    "excluded_items": {
+      "items": {
+        "$ref": "#/$defs/ExcludedContextItem"
+      },
+      "maxItems": 64,
+      "title": "Excluded Items",
+      "type": "array"
+    },
+    "budget": {
+      "$ref": "#/$defs/TokenBudget"
+    },
+    "sensitivity": {
+      "const": "INTERNAL",
+      "title": "Sensitivity",
+      "type": "string"
+    },
+    "content_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Content Hash",
+      "type": "string"
+    },
+    "status": {
+      "const": "SEALED",
+      "title": "Status",
+      "type": "string"
+    },
+    "sealed_at": {
+      "format": "date-time",
+      "title": "Sealed At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract",
+    "schema_version",
+    "context_manifest_id",
+    "invocation_id",
+    "session_id",
+    "transport",
+    "consumer_id",
+    "purpose",
+    "policy_version",
+    "included_items",
+    "excluded_items",
+    "budget",
+    "sensitivity",
+    "content_hash",
+    "status",
+    "sealed_at"
+  ],
+  "title": "ContextManifest",
+  "type": "object"
+}

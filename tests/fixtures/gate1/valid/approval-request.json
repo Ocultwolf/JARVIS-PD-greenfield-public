@@ -1,0 +1,12 @@
+{
+  "contract": "jarvis.approval-request",
+  "schema_version": "1.0.0",
+  "approval_request_id": "20000000-0000-0000-0000-000000000030",
+  "operation_id": "20000000-0000-0000-0000-000000000021",
+  "operation_hash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "requested_from": "human-owner",
+  "requested_at": "2026-08-06T14:00:00Z",
+  "expires_at": "2026-08-06T15:00:00Z",
+  "max_uses": 1,
+  "status": "PENDING"
+}

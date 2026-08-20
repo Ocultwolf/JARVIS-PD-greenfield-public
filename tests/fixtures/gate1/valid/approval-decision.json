@@ -1,0 +1,10 @@
+{
+  "contract": "jarvis.approval-decision",
+  "schema_version": "1.0.0",
+  "approval_request_id": "20000000-0000-0000-0000-000000000030",
+  "operation_hash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "decision": "APPROVED",
+  "decided_by": "human-owner",
+  "decided_at": "2026-08-06T14:00:10Z",
+  "decision_reason": "Synthetic acceptance scenario"
+}

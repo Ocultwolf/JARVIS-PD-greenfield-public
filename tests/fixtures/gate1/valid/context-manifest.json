@@ -1,0 +1,19 @@
+{
+  "contract": "jarvis.context-manifest",
+  "schema_version": "1.0.0",
+  "context_manifest_id": "20000000-0000-0000-0000-000000000005",
+  "invocation_id": "20000000-0000-0000-0000-000000000001",
+  "session_id": "synthetic-session",
+  "transport": "docker-exec-provisional",
+  "consumer_id": "user",
+  "purpose": "task recommendation",
+  "knowledge_versions": [],
+  "policy_version": "g1-policy-cut-v1",
+  "included_items": [{"ref": "task:synthetic", "version": "1", "content_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "reason": "minimum task context"}],
+  "excluded_items": [{"ref": "history:prototype", "reason_code": "UNTRUSTED_SOURCE"}],
+  "budget": {"max_tokens": 100, "used_tokens": 40},
+  "sensitivity": "INTERNAL",
+  "content_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "status": "SEALED",
+  "sealed_at": "2026-08-06T14:00:00Z"
+}

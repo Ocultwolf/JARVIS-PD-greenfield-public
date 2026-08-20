@@ -1,0 +1,62 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "contract": {
+      "const": "jarvis.approval-decision",
+      "title": "Contract",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "approval_request_id": {
+      "format": "uuid",
+      "title": "Approval Request Id",
+      "type": "string"
+    },
+    "operation_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Operation Hash",
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "APPROVED",
+        "DENIED"
+      ],
+      "title": "Decision",
+      "type": "string"
+    },
+    "decided_by": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Decided By",
+      "type": "string"
+    },
+    "decided_at": {
+      "format": "date-time",
+      "title": "Decided At",
+      "type": "string"
+    },
+    "decision_reason": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Decision Reason",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract",
+    "schema_version",
+    "approval_request_id",
+    "operation_hash",
+    "decision",
+    "decided_by",
+    "decided_at",
+    "decision_reason"
+  ],
+  "title": "ApprovalDecision",
+  "type": "object"
+}

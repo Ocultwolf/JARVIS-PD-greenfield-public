@@ -1,0 +1,163 @@
+{
+  "$defs": {
+    "InjectionStatus": {
+      "enum": [
+        "PENDING",
+        "CONFIRMED",
+        "PARTIAL",
+        "FAILED",
+        "UNKNOWN"
+      ],
+      "title": "InjectionStatus",
+      "type": "string"
+    },
+    "SessionStrategy": {
+      "enum": [
+        "FRESH_SESSION",
+        "VERIFIED_SESSION_UPDATE",
+        "SESSION_RECREATE"
+      ],
+      "title": "SessionStrategy",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract": {
+      "const": "jarvis.injection-receipt",
+      "title": "Contract",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "injection_id": {
+      "format": "uuid",
+      "title": "Injection Id",
+      "type": "string"
+    },
+    "invocation_id": {
+      "format": "uuid",
+      "title": "Invocation Id",
+      "type": "string"
+    },
+    "context_manifest_id": {
+      "format": "uuid",
+      "title": "Context Manifest Id",
+      "type": "string"
+    },
+    "manifest_invocation_id": {
+      "format": "uuid",
+      "title": "Manifest Invocation Id",
+      "type": "string"
+    },
+    "manifest_context_manifest_id": {
+      "format": "uuid",
+      "title": "Manifest Context Manifest Id",
+      "type": "string"
+    },
+    "manifest_session_id": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Manifest Session Id",
+      "type": "string"
+    },
+    "manifest_transport": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Manifest Transport",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/InjectionStatus"
+    },
+    "strategy": {
+      "$ref": "#/$defs/SessionStrategy"
+    },
+    "transport": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Transport",
+      "type": "string"
+    },
+    "session_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Session Id"
+    },
+    "manifest_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Manifest Hash",
+      "type": "string"
+    },
+    "injected_hash": {
+      "anyOf": [
+        {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Injected Hash"
+    },
+    "injected_at": {
+      "format": "date-time",
+      "title": "Injected At",
+      "type": "string"
+    },
+    "verification_method": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Verification Method"
+    },
+    "error_code": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error Code"
+    }
+  },
+  "required": [
+    "contract",
+    "schema_version",
+    "injection_id",
+    "invocation_id",
+    "context_manifest_id",
+    "manifest_invocation_id",
+    "manifest_context_manifest_id",
+    "manifest_session_id",
+    "manifest_transport",
+    "status",
+    "strategy",
+    "transport",
+    "manifest_hash",
+    "injected_at"
+  ],
+  "title": "InjectionReceipt",
+  "type": "object"
+}

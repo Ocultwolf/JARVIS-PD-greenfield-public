@@ -1,0 +1,1 @@
+{"contract":"jarvis.user-node-output","schema_version":"1.0.0","proposal_id":"00000000-0000-4000-8000-000000000001","run_id":"00000000-0000-4000-8000-000000000002","kind":"SELECT_TASK","selected_task_id":"00000000-0000-4000-8000-000000000003","proposed_tasks":[],"rejection_reason":null,"explanation":"Select the only ready task."}

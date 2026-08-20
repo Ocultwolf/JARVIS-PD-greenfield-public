@@ -1,0 +1,160 @@
+{
+  "$defs": {
+    "SandboxLimits": {
+      "additionalProperties": false,
+      "properties": {
+        "network_enabled": {
+          "const": false,
+          "title": "Network Enabled",
+          "type": "boolean"
+        },
+        "allowed_operations": {
+          "items": {
+            "const": "fixture.atomic_write",
+            "type": "string"
+          },
+          "maxItems": 1,
+          "minItems": 1,
+          "title": "Allowed Operations",
+          "type": "array"
+        },
+        "max_files": {
+          "const": 1,
+          "title": "Max Files",
+          "type": "integer"
+        },
+        "max_bytes": {
+          "maximum": 1048576,
+          "minimum": 1,
+          "title": "Max Bytes",
+          "type": "integer"
+        },
+        "timeout_seconds": {
+          "const": 30,
+          "title": "Timeout Seconds",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "network_enabled",
+        "allowed_operations",
+        "max_files",
+        "max_bytes",
+        "timeout_seconds"
+      ],
+      "title": "SandboxLimits",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract": {
+      "const": "jarvis.tool-call-request",
+      "title": "Contract",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "tool_call_id": {
+      "format": "uuid",
+      "title": "Tool Call Id",
+      "type": "string"
+    },
+    "operation_id": {
+      "format": "uuid",
+      "title": "Operation Id",
+      "type": "string"
+    },
+    "action_id": {
+      "format": "uuid",
+      "title": "Action Id",
+      "type": "string"
+    },
+    "run_id": {
+      "format": "uuid",
+      "title": "Run Id",
+      "type": "string"
+    },
+    "tool_id": {
+      "const": "fixture.atomic_write",
+      "title": "Tool Id",
+      "type": "string"
+    },
+    "actor_id": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Actor Id",
+      "type": "string"
+    },
+    "target_relative_path": {
+      "maxLength": 255,
+      "minLength": 1,
+      "title": "Target Relative Path",
+      "type": "string"
+    },
+    "content_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Content Hash",
+      "type": "string"
+    },
+    "operation_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Operation Hash",
+      "type": "string"
+    },
+    "idempotency_key": {
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Idempotency Key",
+      "type": "string"
+    },
+    "approval_id": {
+      "anyOf": [
+        {
+          "format": "uuid",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Approval Id"
+    },
+    "risk_class": {
+      "const": "R1",
+      "title": "Risk Class",
+      "type": "string"
+    },
+    "effect_class": {
+      "const": "COMPENSATABLE",
+      "title": "Effect Class",
+      "type": "string"
+    },
+    "sandbox": {
+      "$ref": "#/$defs/SandboxLimits"
+    }
+  },
+  "required": [
+    "contract",
+    "schema_version",
+    "tool_call_id",
+    "operation_id",
+    "action_id",
+    "run_id",
+    "tool_id",
+    "actor_id",
+    "target_relative_path",
+    "content_hash",
+    "operation_hash",
+    "idempotency_key",
+    "risk_class",
+    "effect_class",
+    "sandbox"
+  ],
+  "title": "ToolCallRequest",
+  "type": "object"
+}

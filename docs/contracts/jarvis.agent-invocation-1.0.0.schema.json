@@ -1,0 +1,84 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "contract": {
+      "const": "jarvis.agent-invocation",
+      "title": "Contract",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "invocation_id": {
+      "format": "uuid",
+      "title": "Invocation Id",
+      "type": "string"
+    },
+    "agent_id": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Agent Id",
+      "type": "string"
+    },
+    "node_run_id": {
+      "format": "uuid",
+      "title": "Node Run Id",
+      "type": "string"
+    },
+    "run_id": {
+      "format": "uuid",
+      "title": "Run Id",
+      "type": "string"
+    },
+    "message": {
+      "maxLength": 65536,
+      "minLength": 1,
+      "title": "Message",
+      "type": "string"
+    },
+    "context_injection_id": {
+      "format": "uuid",
+      "title": "Context Injection Id",
+      "type": "string"
+    },
+    "expected_output_contract": {
+      "pattern": "^[a-z0-9._-]+@[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "title": "Expected Output Contract",
+      "type": "string"
+    },
+    "timeout_seconds": {
+      "const": 60,
+      "title": "Timeout Seconds",
+      "type": "integer"
+    },
+    "session_policy": {
+      "const": "FRESH_OR_VERIFIED",
+      "title": "Session Policy",
+      "type": "string"
+    },
+    "idempotency_key": {
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Idempotency Key",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract",
+    "schema_version",
+    "invocation_id",
+    "agent_id",
+    "node_run_id",
+    "run_id",
+    "message",
+    "context_injection_id",
+    "expected_output_contract",
+    "timeout_seconds",
+    "session_policy",
+    "idempotency_key"
+  ],
+  "title": "AgentInvocation",
+  "type": "object"
+}

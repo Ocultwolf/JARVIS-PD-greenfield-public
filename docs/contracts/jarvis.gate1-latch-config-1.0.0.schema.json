@@ -1,0 +1,88 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "contract": {
+      "const": "jarvis.gate1-latch-config",
+      "title": "Contract",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "config_id": {
+      "const": "gate1-latch",
+      "title": "Config Id",
+      "type": "string"
+    },
+    "host_latch_id": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Host Latch Id",
+      "type": "string"
+    },
+    "persistence": {
+      "const": "HOST_PERSISTENT",
+      "title": "Persistence",
+      "type": "string"
+    },
+    "postgresql_role": {
+      "const": "PROJECTION_AND_AUDIT_ONLY",
+      "title": "Postgresql Role",
+      "type": "string"
+    },
+    "independent_of_llm": {
+      "const": true,
+      "title": "Independent Of Llm",
+      "type": "boolean"
+    },
+    "independent_of_langgraph": {
+      "const": true,
+      "title": "Independent Of Langgraph",
+      "type": "boolean"
+    },
+    "independent_of_openclaw": {
+      "const": true,
+      "title": "Independent Of Openclaw",
+      "type": "boolean"
+    },
+    "guard_before_work_acquisition": {
+      "const": true,
+      "title": "Guard Before Work Acquisition",
+      "type": "boolean"
+    },
+    "guard_before_effect": {
+      "const": true,
+      "title": "Guard Before Effect",
+      "type": "boolean"
+    },
+    "health_recovery_releases_latch": {
+      "const": false,
+      "title": "Health Recovery Releases Latch",
+      "type": "boolean"
+    },
+    "production_release": {
+      "const": "DEFERRED_NOT_IMPLEMENTED",
+      "title": "Production Release",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract",
+    "schema_version",
+    "config_id",
+    "host_latch_id",
+    "persistence",
+    "postgresql_role",
+    "independent_of_llm",
+    "independent_of_langgraph",
+    "independent_of_openclaw",
+    "guard_before_work_acquisition",
+    "guard_before_effect",
+    "health_recovery_releases_latch",
+    "production_release"
+  ],
+  "title": "Gate1LatchConfig",
+  "type": "object"
+}

@@ -1,0 +1,12 @@
+{
+  "contract": "jarvis.compensation-request",
+  "schema_version": "1.0.0",
+  "compensation_id": "20000000-0000-0000-0000-000000000025",
+  "original_tool_call_id": "20000000-0000-0000-0000-000000000020",
+  "operation_id": "20000000-0000-0000-0000-000000000026",
+  "operation_hash": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "actor_id": "human-owner",
+  "idempotency_key": "compensation-1",
+  "reason": "Restore prior synthetic fixture state",
+  "expected_result_hash": "sha256:17a01bd45e55bf872b731a8755b624480665721a0968b138b9917e48e890a26b"
+}

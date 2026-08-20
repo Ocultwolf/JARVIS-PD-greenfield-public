@@ -1,0 +1,14 @@
+{
+  "contract": "jarvis.agent-invocation",
+  "schema_version": "1.0.0",
+  "invocation_id": "20000000-0000-0000-0000-000000000001",
+  "agent_id": "user",
+  "node_run_id": "20000000-0000-0000-0000-000000000002",
+  "run_id": "20000000-0000-0000-0000-000000000003",
+  "message": "Synthetic fixture request",
+  "context_injection_id": "20000000-0000-0000-0000-000000000006",
+  "expected_output_contract": "jarvis.user-node-output@1.0.0",
+  "timeout_seconds": 60,
+  "session_policy": "FRESH_OR_VERIFIED",
+  "idempotency_key": "agent-invocation-1"
+}

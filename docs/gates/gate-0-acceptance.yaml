@@ -1,0 +1,24 @@
+gate_id: G0_INTEGRITY
+phase: PHASE_0
+status: PASS
+requirements:
+  - id: G0-01
+    statement: Task y Run solo se crean y transicionan por rutas autorizadas.
+  - id: G0-02
+    statement: Estado y outbox se confirman en una misma transacción.
+  - id: G0-03
+    statement: Mensajes repetidos no duplican transiciones.
+  - id: G0-04
+    statement: Dos workers no adquieren el mismo lease válido.
+  - id: G0-05
+    statement: Un fencing token obsoleto no puede escribir.
+  - id: G0-06
+    statement: Los schemas se recrean desde cero mediante migraciones versionadas.
+  - id: G0-07
+    statement: Backup y restore aislado recuperan el estado esperado.
+  - id: G0-08
+    statement: Auditoría reconstruye solicitud, autorización y materialización.
+  - id: G0-09
+    statement: Contrato User Node está versionado, validado y solo propone.
+  - id: G0-10
+    statement: El TestEvidenceBundle permite reproducir la evaluación completa.

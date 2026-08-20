@@ -1,0 +1,48 @@
+{
+  "artifact": "JARVIS_PD_F1_WP4_REVIEW_V3.zip",
+  "baseline_artifact": "JARVIS_PD_F1_WP4_REVIEW_V2.zip",
+  "base_head": "64c41c2c76804cb6b567f015f1724a1a1971deba",
+  "commit_created": false,
+  "status": "READY_FOR_THIRD_REVIEW",
+  "corrections": {
+    "CORR-WP4-V3-001": "PASS",
+    "CORR-WP4-V3-002": "PASS",
+    "CORR-WP4-V3-003": "PASS",
+    "CORR-WP4-V3-004": "PASS"
+  },
+  "validation": {
+    "wp4_postgresql": "30 passed",
+    "non_integration": "79 passed, 98 deselected",
+    "complete_suite": "177 passed",
+    "ruff": "PASS",
+    "mypy": "PASS, 28 source files",
+    "migration_gate0": "PASS",
+    "migration_wp1": "PASS",
+    "migration_wp3": "PASS",
+    "migration_wp4": "PASS",
+    "backup_restore": "PASS, NO_AUTOMATIC_REPLAY",
+    "git_diff_check": "PASS"
+  },
+  "canonical_success": {
+    "contract": "jarvis.effect-receipt@1.0.0",
+    "producer": "ToolEffectService.execute",
+    "persistence": "effect_receipts + tool_calls + actions + runs + leases",
+    "free_form_confirmation_accepted": false
+  },
+  "host_latch": {
+    "expected_identity": "configured UID and GID",
+    "file_permissions": "no group/world write",
+    "directory_permissions": "no group/world write",
+    "descriptor_read": true,
+    "replacement_detection": "device/inode before-open-after",
+    "release_api": false,
+    "acceptance_limitation": "ownership mismatch is exercised with configured identity; tests do not chown or require privilege"
+  },
+  "previous_artifacts": {
+    "v1_sha256": "ac6b12aafea2464c7e0b86ee34fe88938783caaef2a8619fc9faa2811bd8b4b1",
+    "v2_sha256": "2feb43cf3443a113711b535acb16e4f5425026f853d314d6b45e5e3bddd77abe",
+    "retrospectively_modified": false
+  },
+  "gate_1": "NOT_EVALUATED",
+  "wp5_plus": "NOT_AUTHORIZED"
+}

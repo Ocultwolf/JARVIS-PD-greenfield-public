@@ -1,0 +1,18 @@
+{
+  "contract": "jarvis.agent-result",
+  "schema_version": "1.0.0",
+  "invocation_id": "20000000-0000-0000-0000-000000000001",
+  "node_run_id": "20000000-0000-0000-0000-000000000002",
+  "status": "UNAVAILABLE",
+  "requested_contract": "jarvis.user-node-output@1.0.0",
+  "raw_output": null,
+  "structured_output": null,
+  "output_hash": null,
+  "session_id": null,
+  "started_at": "2026-08-06T14:00:00Z",
+  "completed_at": "2026-08-06T14:00:01Z",
+  "input_tokens": null,
+  "output_tokens": null,
+  "error_code": "OPENCLAW_UNAVAILABLE",
+  "evidence_refs": ["evidence:openclaw-unavailable"]
+}

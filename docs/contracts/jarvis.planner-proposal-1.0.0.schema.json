@@ -1,0 +1,156 @@
+{
+  "$defs": {
+    "PlannerStep": {
+      "additionalProperties": false,
+      "properties": {
+        "step_id": {
+          "format": "uuid",
+          "title": "Step Id",
+          "type": "string"
+        },
+        "intent": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Intent",
+          "type": "string"
+        },
+        "required_capabilities": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 16,
+          "minItems": 1,
+          "title": "Required Capabilities",
+          "type": "array"
+        },
+        "dependencies": {
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "maxItems": 16,
+          "title": "Dependencies",
+          "type": "array"
+        },
+        "expected_evidence": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 16,
+          "minItems": 1,
+          "title": "Expected Evidence",
+          "type": "array"
+        },
+        "risk_class": {
+          "$ref": "#/$defs/RiskClass"
+        }
+      },
+      "required": [
+        "step_id",
+        "intent",
+        "required_capabilities",
+        "expected_evidence",
+        "risk_class"
+      ],
+      "title": "PlannerStep",
+      "type": "object"
+    },
+    "RiskClass": {
+      "enum": [
+        "R0",
+        "R1"
+      ],
+      "title": "RiskClass",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract": {
+      "const": "jarvis.planner-proposal",
+      "title": "Contract",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "proposal_id": {
+      "format": "uuid",
+      "title": "Proposal Id",
+      "type": "string"
+    },
+    "run_id": {
+      "format": "uuid",
+      "title": "Run Id",
+      "type": "string"
+    },
+    "goal_id": {
+      "format": "uuid",
+      "title": "Goal Id",
+      "type": "string"
+    },
+    "assumptions": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 16,
+      "title": "Assumptions",
+      "type": "array"
+    },
+    "steps": {
+      "items": {
+        "$ref": "#/$defs/PlannerStep"
+      },
+      "maxItems": 12,
+      "minItems": 1,
+      "title": "Steps",
+      "type": "array"
+    },
+    "open_questions": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 16,
+      "title": "Open Questions",
+      "type": "array"
+    },
+    "requested_approval_ids": {
+      "items": {
+        "format": "uuid",
+        "type": "string"
+      },
+      "maxItems": 8,
+      "title": "Requested Approval Ids",
+      "type": "array"
+    },
+    "completion_criteria": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 16,
+      "minItems": 1,
+      "title": "Completion Criteria",
+      "type": "array"
+    },
+    "explanation": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "title": "Explanation",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract",
+    "schema_version",
+    "proposal_id",
+    "run_id",
+    "goal_id",
+    "steps",
+    "completion_criteria",
+    "explanation"
+  ],
+  "title": "PlannerProposal",
+  "type": "object"
+}

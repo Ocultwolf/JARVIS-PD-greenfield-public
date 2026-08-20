@@ -1,0 +1,20 @@
+{
+  "contract": "jarvis.injection-receipt",
+  "schema_version": "1.0.0",
+  "injection_id": "20000000-0000-0000-0000-000000000006",
+  "invocation_id": "20000000-0000-0000-0000-000000000001",
+  "context_manifest_id": "20000000-0000-0000-0000-000000000005",
+  "manifest_invocation_id": "20000000-0000-0000-0000-000000000001",
+  "manifest_context_manifest_id": "20000000-0000-0000-0000-000000000005",
+  "manifest_session_id": "synthetic-session",
+  "manifest_transport": "docker-exec-provisional",
+  "status": "CONFIRMED",
+  "strategy": "FRESH_SESSION",
+  "transport": "docker-exec-provisional",
+  "session_id": "synthetic-session",
+  "manifest_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "injected_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "injected_at": "2026-08-06T14:00:00Z",
+  "verification_method": "session_hash_receipt",
+  "error_code": null
+}

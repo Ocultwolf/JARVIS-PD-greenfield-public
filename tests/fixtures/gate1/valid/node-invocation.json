@@ -1,0 +1,13 @@
+{
+  "contract": "jarvis.node-invocation-request",
+  "schema_version": "1.0.0",
+  "invocation_id": "20000000-0000-0000-0000-000000000001",
+  "node_run_id": "20000000-0000-0000-0000-000000000002",
+  "run_id": "20000000-0000-0000-0000-000000000003",
+  "node_id": "planner",
+  "capability": "planning.create_plan",
+  "input_refs": ["task:20000000-0000-0000-0000-000000000004"],
+  "context_manifest_id": "20000000-0000-0000-0000-000000000005",
+  "session_binding": {"strategy": "FRESH_SESSION", "workspace_id": "planner", "session_id": null},
+  "constraints": {"deadline": "2026-08-06T14:01:00Z", "max_output_bytes": 65536, "allowed_response_contract": "jarvis.planner-proposal@1.0.0"}
+}

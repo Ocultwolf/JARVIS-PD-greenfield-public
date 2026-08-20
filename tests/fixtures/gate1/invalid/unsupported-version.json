@@ -1,0 +1,5 @@
+{
+  "contract_id": "jarvis.agent-invocation@2.0.0",
+  "expected_reason_code": "UNSUPPORTED_SCHEMA_VERSION",
+  "payload": {}
+}

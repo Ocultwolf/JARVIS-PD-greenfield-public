@@ -1,0 +1,18 @@
+{
+  "contract_id": "jarvis.effect-receipt@1.0.0",
+  "expected_reason_code": "SCHEMA_VALIDATION_FAILED",
+  "payload": {
+    "contract": "jarvis.effect-receipt",
+    "schema_version": "1.0.0",
+    "receipt_id": "30000000-0000-0000-0000-000000000040",
+    "tool_call_id": "30000000-0000-0000-0000-000000000041",
+    "operation_id": "30000000-0000-0000-0000-000000000042",
+    "outcome": "OUTCOME_UNKNOWN",
+    "previous_hash": null,
+    "resulting_hash": null,
+    "verified": true,
+    "observed_at": "2026-08-06T14:00:00Z",
+    "evidence_refs": [],
+    "error_code": "TOOL_TIMEOUT"
+  }
+}

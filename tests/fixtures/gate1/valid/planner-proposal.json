@@ -1,0 +1,13 @@
+{
+  "contract": "jarvis.planner-proposal",
+  "schema_version": "1.0.0",
+  "proposal_id": "20000000-0000-0000-0000-000000000010",
+  "run_id": "20000000-0000-0000-0000-000000000003",
+  "goal_id": "20000000-0000-0000-0000-000000000011",
+  "assumptions": ["Synthetic fixture only"],
+  "steps": [{"step_id": "20000000-0000-0000-0000-000000000012", "intent": "write_fixture", "required_capabilities": ["fixture.atomic_write"], "dependencies": [], "expected_evidence": ["effect receipt"], "risk_class": "R1"}],
+  "open_questions": [],
+  "requested_approval_ids": [],
+  "completion_criteria": ["fixture hash verified"],
+  "explanation": "Proposal only; no permission or execution authority."
+}

@@ -1,0 +1,14 @@
+{
+  "contract": "jarvis.gate1-limits",
+  "schema_version": "1.0.0",
+  "max_concurrent_runs": 1,
+  "max_actions_per_run": 1,
+  "max_tool_calls_per_action": 1,
+  "max_node_attempts": 2,
+  "max_graph_transitions": 12,
+  "run_timeout_seconds": 300,
+  "node_timeout_seconds": 60,
+  "tool_timeout_seconds": 30,
+  "model_id": null,
+  "token_budget": null
+}

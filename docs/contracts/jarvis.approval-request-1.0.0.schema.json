@@ -1,0 +1,71 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "contract": {
+      "const": "jarvis.approval-request",
+      "title": "Contract",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "approval_request_id": {
+      "format": "uuid",
+      "title": "Approval Request Id",
+      "type": "string"
+    },
+    "operation_id": {
+      "format": "uuid",
+      "title": "Operation Id",
+      "type": "string"
+    },
+    "operation_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Operation Hash",
+      "type": "string"
+    },
+    "requested_from": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Requested From",
+      "type": "string"
+    },
+    "requested_at": {
+      "format": "date-time",
+      "title": "Requested At",
+      "type": "string"
+    },
+    "expires_at": {
+      "format": "date-time",
+      "title": "Expires At",
+      "type": "string"
+    },
+    "max_uses": {
+      "maximum": 10,
+      "minimum": 1,
+      "title": "Max Uses",
+      "type": "integer"
+    },
+    "status": {
+      "const": "PENDING",
+      "title": "Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract",
+    "schema_version",
+    "approval_request_id",
+    "operation_id",
+    "operation_hash",
+    "requested_from",
+    "requested_at",
+    "expires_at",
+    "max_uses",
+    "status"
+  ],
+  "title": "ApprovalRequest",
+  "type": "object"
+}

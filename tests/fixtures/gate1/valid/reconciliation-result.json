@@ -1,0 +1,12 @@
+{
+  "contract": "jarvis.reconciliation-result",
+  "schema_version": "1.0.0",
+  "reconciliation_id": "20000000-0000-0000-0000-000000000024",
+  "tool_call_id": "20000000-0000-0000-0000-000000000020",
+  "operation_id": "20000000-0000-0000-0000-000000000021",
+  "outcome": "CONFIRMED_SUCCEEDED",
+  "observed_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "reconciled_at": "2026-08-06T14:01:00Z",
+  "evidence_refs": ["fixture:result/output.txt"],
+  "reason_code": "HASH_MATCHED"
+}

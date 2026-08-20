@@ -1,0 +1,15 @@
+{
+  "contract": "jarvis.gate1-latch-config",
+  "schema_version": "1.0.0",
+  "config_id": "gate1-latch",
+  "host_latch_id": "host:latch:gate1",
+  "persistence": "HOST_PERSISTENT",
+  "postgresql_role": "PROJECTION_AND_AUDIT_ONLY",
+  "independent_of_llm": true,
+  "independent_of_langgraph": true,
+  "independent_of_openclaw": true,
+  "guard_before_work_acquisition": true,
+  "guard_before_effect": true,
+  "health_recovery_releases_latch": false,
+  "production_release": "DEFERRED_NOT_IMPLEMENTED"
+}

@@ -1,0 +1,18 @@
+{
+  "contract": "jarvis.tool-call-request",
+  "schema_version": "1.0.0",
+  "tool_call_id": "20000000-0000-0000-0000-000000000020",
+  "operation_id": "20000000-0000-0000-0000-000000000021",
+  "action_id": "20000000-0000-0000-0000-000000000022",
+  "run_id": "20000000-0000-0000-0000-000000000003",
+  "tool_id": "fixture.atomic_write",
+  "actor_id": "worker:test",
+  "target_relative_path": "result/output.txt",
+  "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "operation_hash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "idempotency_key": "tool-call-1",
+  "approval_id": null,
+  "risk_class": "R1",
+  "effect_class": "COMPENSATABLE",
+  "sandbox": {"network_enabled": false, "allowed_operations": ["fixture.atomic_write"], "max_files": 1, "max_bytes": 4096, "timeout_seconds": 30}
+}
